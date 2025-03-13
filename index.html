@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road PK Selector</title>
+    <link rel="stylesheet" href="../styles/style.css">
+	    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    
+	<div id="controls">
+        <input type="text" id="roadSearch" placeholder="Search Road Number..." list="roadList">
+        <datalist id="roadList"></datalist>
+        <input type="number" id="pkStart" placeholder="Enter PK Start (e.g., 5000)">
+        <input type="number" id="pkEnd" placeholder="Enter PK End (e.g., 8000)">
+        <button onclick="filterRoads()">Show Road</button>
+        <button onclick="saveAsKML(currentSegment)">Add Road to KML</button>
+		<button onclick="mergeAndSaveKML()">Save Merged KML</button>
+		<button onclick="exportToExcel()">Export Data to Excel</button>
+		<button onclick="resetMeasurement()">Clear Measure Maps</button>
+    </div>
+	
+	<input type="file" id="file-input" multiple accept=".kml">
+	
+    <div id="map"></div>
+	    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	
+	<!-- Install JSZip for KMZ Creation-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+	<!-- sheetJS for cover to excel-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+	<!-- FileReader API to read the files and Leaflet's capability to handle GeoJSON data-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js"></script>
+
+
+    <script src="../scripts/app.js"></script>
+	<script src="../scripts/measure.js"></script>
+	<script src="../scripts/read_kml.js"></script>
+</body>
+</html>
